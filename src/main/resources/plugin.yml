@@ -1,0 +1,11 @@
+name: RTP
+version: ${project.version}
+main: blue.polar.rtp.RTP
+api-version: 1.17
+authors: [ xPolar ]
+description: Plugin to randomly teleport users to a random location in the world once they spawn, and die (If they don't have a bed claimed).
+website: https://polar.blue
+commands:
+  rtp:
+    description: Randomly teleport to a safe location around the world.
+    usage: /<command>
