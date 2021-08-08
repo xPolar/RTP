@@ -11,6 +11,8 @@ public final class RTP extends JavaPlugin {
     public void onEnable() {
         System.out.println("[RTP] RTP has been enabled!");
 
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
         getServer().getPluginManager().registerEvents(new PlayerRespawn(this), this);
         getServer().getPluginManager().registerEvents(new PlayerJoin(this), this);
         getCommand("rtp").setExecutor(new RTPCommand(this));

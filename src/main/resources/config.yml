@@ -1,0 +1,33 @@
+rtpOn:
+  respawn: false
+  firstJoin: false
+rtpLimit:
+  xLimit: 10000
+  zLimit: 10000
+  negative: true
+  worldBorder: false # This will teleport the user anywhere within the world boder.
+message:
+  # {X} {Y} and {Z} will be replaced with the proper coordinates in the messages, color codes are supporter, use &!
+  title:
+    enabled: true
+    firstLine: "&6&lWelcome... Home?"
+    secondLine: "You've been teleported to a random place!"
+  chat:
+    enabled: false
+    message: "You've been teleported to a random place!"
+# To add blocks to this list add the upper case ID, for example minecraft:grass_block would be GRASS_BLOCK.
+unsafeBlocks:
+  - ACACIA_LEAVES
+  - AZALEA_LEAVES
+  - BIRCH_LEAVES
+  - CACTUS
+  - DARK_OAK_LEAVES
+  - FLOWERING_AZALEA_LEAVES
+  - FIRE
+  - JUNGLE_LEAVES
+  - LAVA
+  - LAVA_CAULDRON
+  - MAGMA_BLOCK
+  - OAK_LEAVES
+  - SPRUCE_LEAVES
+  - WATER

@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import static blue.polar.rtp.utilities.FormatString.formatString;
 import static blue.polar.rtp.utilities.GenerateLocation.generateLocation;
 
 public class RTPCommand implements CommandExecutor {
@@ -24,11 +25,14 @@ public class RTPCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            Location generatedLocation = generateLocation(player.getPlayer().getWorld());
+            Location generatedLocation = generateLocation(this.plugin, player.getPlayer().getWorld());
             player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 60, 10));
             player.teleport(generatedLocation);
             System.out.printf("[RTP] %s has joined and been randomly teleported to %s, %s, %s!%n", player.getName(), generatedLocation.getBlockX(), generatedLocation.getBlockY(), generatedLocation.getBlockZ());
-            player.sendTitle(ChatColor.translateAlternateColorCodes('&', "&6&lWelcome... Home?"), "You've been teleported to a random place!");
+            if (this.plugin.getConfig().getBoolean("message.title.enabled"))
+                player.sendTitle(ChatColor.translateAlternateColorCodes('&', formatString(generatedLocation, this.plugin.getConfig().getString("message.title.firstLine"))), ChatColor.translateAlternateColorCodes('&', formatString(generatedLocation, this.plugin.getConfig().getString("message.title.secondLine"))));
+            if (this.plugin.getConfig().getBoolean("message.chat.enabled"))
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', formatString(generatedLocation, this.plugin.getConfig().getString("message.chat.message"))));
         } else System.out.println("[RTP] This command can only be run by Players");
 
         return true;
