@@ -1,8 +1,8 @@
 # RTP
 ## The best and most customizable random teleport plugin.
 
-### Builds
-You can access our builds via the [**Releases**](https://github.com/xPolar/RTP/releases) tab on GitHub.
+### Installation
+To install this plugin download the latest `.jar` via the [**Releases**](https://github.com/xPolar/RTP/releases) tab on GitHub. Then drag and drop that file into your plugins folder!
 
 
 ### Brief Description
